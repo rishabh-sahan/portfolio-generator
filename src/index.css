@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Reset body to allow full screen layout */
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@media print {
+  /* Hide everything by default */
+  body * {
+    visibility: hidden;
+  }
+
+  /* Show only the preview container and its children */
+  #preview-root, #preview-root * {
+    visibility: visible;
+  }
+
+  /* Position the preview container at the top left */
+  #preview-root {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+    overflow: visible;
+    transform: none !important; /* Reset any scaling */
+  }
+
+  /* Hide footer in print mode */
+  footer {
+    display: none !important;
+  }
+
+  /* Ensure background colors are printed */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
