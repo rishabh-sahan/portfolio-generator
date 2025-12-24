@@ -53,6 +53,15 @@ export interface PersonalInfo {
   socials: SocialLinks;
 }
 
+/**
+ * Available portfolio template themes:
+ * - modern: Colorful, engaging design with blue accents
+ * - minimal: Clean, professional resume-style layout
+ * - bold: High contrast black/yellow with strong typography
+ * - elegant: Sophisticated stone colors, centered serif design
+ * - tech: Terminal/code style with syntax highlighting aesthetic
+ * - creative: Gradient purple/pink with glassmorphism effects
+ */
 export type Theme = 'modern' | 'minimal' | 'bold' | 'elegant' | 'tech' | 'creative';
 
 export interface PortfolioData {
