@@ -22,6 +22,7 @@ export const Editor: React.FC = () => {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+    URL.revokeObjectURL(url);
   };
 
   const handleImport = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -33,11 +34,18 @@ export const Editor: React.FC = () => {
       try {
         const json = JSON.parse(event.target?.result as string);
         loadData(json);
-      } catch (error) {
+      } catch {
         alert('Invalid JSON file');
       }
     };
     reader.readAsText(file);
+  };
+
+  const handlePrint = () => {
+    // Add a small delay to ensure the page is ready for print
+    setTimeout(() => {
+      window.print();
+    }, 100);
   };
 
   return (
@@ -74,15 +82,18 @@ export const Editor: React.FC = () => {
       <div className="bg-white border-t p-4 flex flex-col space-y-4 text-sm">
         <div className="flex justify-between items-center">
           <button 
-            onClick={() => window.print()} 
-            className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition-colors font-medium"
+            onClick={handlePrint} 
+            className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition-colors font-medium flex items-center gap-2"
           >
-            Download PDF / Print
+            <span>📄</span> Download PDF / Print
           </button>
           <button onClick={resetData} className="text-red-500 hover:underline">
             Reset All Data
           </button>
         </div>
+        <p className="text-xs text-gray-500">
+          Tip: In the print dialog, select "Save as PDF" as the destination to download a PDF file.
+        </p>
         <div className="flex space-x-4 pt-2 border-t">
           <label className="cursor-pointer text-blue-600 hover:underline">
             Import JSON
