@@ -53,7 +53,7 @@ export interface PersonalInfo {
   socials: SocialLinks;
 }
 
-export type Theme = 'light' | 'dark' | 'minimal';
+export type Theme = 'modern' | 'minimal' | 'bold' | 'elegant' | 'tech' | 'creative';
 
 export interface PortfolioData {
   personalInfo: PersonalInfo;
@@ -76,5 +76,5 @@ export const initialPortfolioData: PortfolioData = {
   experience: [],
   projects: [],
   skills: [],
-  theme: 'light'
+  theme: 'modern'
 };
