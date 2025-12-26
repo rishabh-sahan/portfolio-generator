@@ -29,51 +29,38 @@ export const Preview: React.FC = () => {
     }
   };
 
+  const templates = [
+    { id: 'modern', name: 'Modern', icon: '🎨' },
+    { id: 'minimal', name: 'Minimal', icon: '📄' },
+    { id: 'bold', name: 'Bold', icon: '💪' },
+    { id: 'elegant', name: 'Elegant', icon: '✨' },
+    { id: 'tech', name: 'Tech', icon: '💻' },
+    { id: 'creative', name: 'Creative', icon: '🌈' },
+  ];
+
   return (
     <div className="flex flex-col h-full">
       {/* Template Switcher */}
-      <div className="bg-gray-800 text-white p-2 flex justify-center items-center flex-wrap gap-2 text-sm">
-        <span className="text-gray-400">Template:</span>
-        <button 
-          onClick={() => updateSection('theme', 'modern')}
-          className={`px-3 py-1 rounded ${data.theme === 'modern' ? 'bg-blue-600' : 'hover:bg-gray-700'}`}
-        >
-          Modern
-        </button>
-        <button 
-          onClick={() => updateSection('theme', 'minimal')}
-          className={`px-3 py-1 rounded ${data.theme === 'minimal' ? 'bg-blue-600' : 'hover:bg-gray-700'}`}
-        >
-          Minimal
-        </button>
-        <button 
-          onClick={() => updateSection('theme', 'bold')}
-          className={`px-3 py-1 rounded ${data.theme === 'bold' ? 'bg-blue-600' : 'hover:bg-gray-700'}`}
-        >
-          Bold
-        </button>
-        <button 
-          onClick={() => updateSection('theme', 'elegant')}
-          className={`px-3 py-1 rounded ${data.theme === 'elegant' ? 'bg-blue-600' : 'hover:bg-gray-700'}`}
-        >
-          Elegant
-        </button>
-        <button 
-          onClick={() => updateSection('theme', 'tech')}
-          className={`px-3 py-1 rounded ${data.theme === 'tech' ? 'bg-blue-600' : 'hover:bg-gray-700'}`}
-        >
-          Tech
-        </button>
-        <button 
-          onClick={() => updateSection('theme', 'creative')}
-          className={`px-3 py-1 rounded ${data.theme === 'creative' ? 'bg-blue-600' : 'hover:bg-gray-700'}`}
-        >
-          Creative
-        </button>
+      <div className="bg-slate-800 text-white p-3 flex justify-center items-center flex-wrap gap-2 text-sm rounded-t-xl border border-slate-700">
+        <span className="text-slate-400 mr-2">Template:</span>
+        {templates.map((template) => (
+          <button 
+            key={template.id}
+            onClick={() => updateSection('theme', template.id)}
+            className={`px-3 py-1.5 rounded-lg transition-all flex items-center gap-1.5 ${
+              data.theme === template.id 
+                ? 'bg-gradient-to-r from-blue-600 to-cyan-600 shadow-lg shadow-blue-500/25' 
+                : 'hover:bg-slate-700 text-slate-300 hover:text-white'
+            }`}
+          >
+            <span>{template.icon}</span>
+            <span className="hidden md:inline">{template.name}</span>
+          </button>
+        ))}
       </div>
 
       {/* Preview Area */}
-      <div id="preview-root" className="bg-white min-h-full shadow-2xl mx-auto w-full max-w-[1000px]">
+      <div id="preview-root" className="bg-white min-h-full shadow-2xl mx-auto w-full max-w-[1000px] rounded-b-xl overflow-hidden">
         {renderTemplate()}
       </div>
     </div>

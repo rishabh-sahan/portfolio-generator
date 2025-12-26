@@ -18,41 +18,45 @@ export const PersonalInfoForm: React.FC = () => {
     });
   };
 
+  const inputClass = "w-full p-3 bg-slate-900/50 border border-slate-600 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all";
+
   return (
-    <div className="space-y-4">
-      <h2 className="text-xl font-bold text-gray-800">Personal Information</h2>
+    <div className="space-y-6">
+      <h2 className="text-xl font-bold text-white flex items-center gap-2">
+        <span className="text-2xl">👤</span> Personal Information
+      </h2>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <input
-          className="w-full p-2 border rounded focus:ring-2 focus:ring-blue-500 outline-none"
+          className={inputClass}
           name="fullName"
           placeholder="Full Name"
           value={personalInfo.fullName}
           onChange={handleChange}
         />
         <input
-          className="w-full p-2 border rounded focus:ring-2 focus:ring-blue-500 outline-none"
+          className={inputClass}
           name="title"
           placeholder="Professional Title (e.g. Full Stack Developer)"
           value={personalInfo.title}
           onChange={handleChange}
         />
         <input
-          className="w-full p-2 border rounded focus:ring-2 focus:ring-blue-500 outline-none"
+          className={inputClass}
           name="email"
           placeholder="Email"
           value={personalInfo.email}
           onChange={handleChange}
         />
         <input
-          className="w-full p-2 border rounded focus:ring-2 focus:ring-blue-500 outline-none"
+          className={inputClass}
           name="phone"
           placeholder="Phone (Optional)"
           value={personalInfo.phone || ''}
           onChange={handleChange}
         />
         <input
-          className="w-full p-2 border rounded focus:ring-2 focus:ring-blue-500 outline-none"
+          className={inputClass}
           name="location"
           placeholder="Location (e.g. New York, USA)"
           value={personalInfo.location || ''}
@@ -61,7 +65,7 @@ export const PersonalInfoForm: React.FC = () => {
       </div>
 
       <textarea
-        className="w-full p-2 border rounded focus:ring-2 focus:ring-blue-500 outline-none"
+        className={`${inputClass} resize-none`}
         name="summary"
         placeholder="Professional Summary"
         rows={4}
@@ -69,31 +73,33 @@ export const PersonalInfoForm: React.FC = () => {
         onChange={handleChange}
       />
 
-      <h3 className="text-lg font-semibold text-gray-700 mt-4">Social Links</h3>
+      <h3 className="text-lg font-semibold text-slate-300 mt-6 flex items-center gap-2">
+        <span>🔗</span> Social Links
+      </h3>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <input
-          className="w-full p-2 border rounded focus:ring-2 focus:ring-blue-500 outline-none"
+          className={inputClass}
           name="linkedin"
           placeholder="LinkedIn URL"
           value={personalInfo.socials.linkedin || ''}
           onChange={handleSocialChange}
         />
         <input
-          className="w-full p-2 border rounded focus:ring-2 focus:ring-blue-500 outline-none"
+          className={inputClass}
           name="github"
           placeholder="GitHub URL"
           value={personalInfo.socials.github || ''}
           onChange={handleSocialChange}
         />
         <input
-          className="w-full p-2 border rounded focus:ring-2 focus:ring-blue-500 outline-none"
+          className={inputClass}
           name="twitter"
           placeholder="Twitter URL"
           value={personalInfo.socials.twitter || ''}
           onChange={handleSocialChange}
         />
         <input
-          className="w-full p-2 border rounded focus:ring-2 focus:ring-blue-500 outline-none"
+          className={inputClass}
           name="website"
           placeholder="Personal Website URL"
           value={personalInfo.socials.website || ''}
