@@ -1,5 +1,6 @@
 import React from 'react';
 import { usePortfolio } from '../../context/PortfolioContext';
+import type { Theme } from '../../types';
 import { ModernTemplate } from './templates/ModernTemplate';
 import { MinimalTemplate } from './templates/MinimalTemplate';
 import { BoldTemplate } from './templates/BoldTemplate';
@@ -46,7 +47,7 @@ export const Preview: React.FC = () => {
         {templates.map((template) => (
           <button 
             key={template.id}
-            onClick={() => updateSection('theme', template.id)}
+            onClick={() => updateSection('theme', template.id as Theme)}
             className={`px-3 py-1.5 rounded-lg transition-all flex items-center gap-1.5 ${
               data.theme === template.id 
                 ? 'bg-gradient-to-r from-blue-600 to-cyan-600 shadow-lg shadow-blue-500/25' 
