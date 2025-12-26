@@ -3,6 +3,21 @@ interface LandingPageProps {
 }
 
 export function LandingPage({ onGetStarted }: LandingPageProps) {
+  const handleLogin = () => {
+    // Placeholder: In a real app, this would open a login modal or navigate to login page
+    onGetStarted();
+  };
+
+  const handleSignUp = () => {
+    // Placeholder: In a real app, this would open a signup modal or navigate to signup page
+    onGetStarted();
+  };
+
+  const handleViewTemplates = () => {
+    // Navigate to the main app to view templates
+    onGetStarted();
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
       {/* Navigation Bar */}
@@ -21,10 +36,16 @@ export function LandingPage({ onGetStarted }: LandingPageProps) {
 
             {/* Navigation Buttons */}
             <div className="flex items-center space-x-4">
-              <button className="px-4 py-2 text-sm font-medium text-slate-300 hover:text-white transition-colors duration-200">
+              <button 
+                onClick={handleLogin}
+                className="px-4 py-2 text-sm font-medium text-slate-300 hover:text-white transition-colors duration-200"
+              >
                 Login
               </button>
-              <button className="px-4 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors duration-200 shadow-lg shadow-blue-500/25">
+              <button 
+                onClick={handleSignUp}
+                className="px-4 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors duration-200 shadow-lg shadow-blue-500/25"
+              >
                 Sign Up
               </button>
             </div>
@@ -53,7 +74,10 @@ export function LandingPage({ onGetStarted }: LandingPageProps) {
             >
               Get Started Free
             </button>
-            <button className="px-8 py-4 text-lg font-semibold text-slate-300 border border-slate-600 hover:border-slate-500 hover:text-white rounded-xl transition-all duration-200">
+            <button 
+              onClick={handleViewTemplates}
+              className="px-8 py-4 text-lg font-semibold text-slate-300 border border-slate-600 hover:border-slate-500 hover:text-white rounded-xl transition-all duration-200"
+            >
               View Templates
             </button>
           </div>
