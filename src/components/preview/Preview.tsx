@@ -42,7 +42,7 @@ export const Preview: React.FC = () => {
   return (
     <div className="flex flex-col h-full">
       {/* Template Switcher */}
-      <div className="bg-slate-800 text-white p-3 flex justify-center items-center flex-wrap gap-2 text-sm rounded-t-xl border border-slate-700">
+      <div className="bg-slate-800 text-white p-3 flex justify-center items-center flex-wrap gap-2 text-sm rounded-t-xl border border-slate-700 print:hidden">
         <span className="text-slate-400 mr-2">Template:</span>
         {templates.map((template) => (
           <button 
@@ -61,7 +61,7 @@ export const Preview: React.FC = () => {
       </div>
 
       {/* Preview Area */}
-      <div id="preview-root" className="bg-white min-h-full shadow-2xl mx-auto w-full max-w-[1000px] rounded-b-xl overflow-hidden">
+      <div id="preview-root" className="bg-white min-h-full shadow-2xl mx-auto w-full max-w-[1000px] rounded-b-xl overflow-hidden print:shadow-none print:rounded-none print:max-w-none">
         {renderTemplate()}
       </div>
     </div>

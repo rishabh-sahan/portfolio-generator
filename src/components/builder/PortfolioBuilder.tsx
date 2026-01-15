@@ -105,8 +105,8 @@ function BuilderContent() {
       </div>
 
       {/* Right Side: Preview */}
-      <div className="w-1/2 bg-slate-900 p-6 overflow-y-auto flex justify-center">
-        <div className="w-full max-w-[1000px] transform scale-[0.75] origin-top">
+      <div id="preview-panel" className="w-1/2 bg-slate-900 p-6 overflow-y-auto flex justify-center print:w-full print:p-0 print:block">
+        <div className="w-full max-w-[1000px] transform scale-[0.75] origin-top print:scale-100 print:max-w-none print:transform-none">
           <Preview />
         </div>
       </div>
